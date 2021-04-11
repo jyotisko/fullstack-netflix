@@ -1,0 +1,211 @@
+.header__landing {
+  height: 80vh;
+  background-image: linear-gradient(rgba($color-dark, 0.8), rgba($color-dark, 0.5)), url(./../../assets/header.jpg);
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1rem solid $color-dark-light;
+  color: $color-white;
+
+  .home-nav {
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem;
+  
+    .logo {
+      img {
+        width: 17rem   
+      }
+    }
+  }
+
+  .container {
+    height: calc(100% - 15%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .text {
+      margin-bottom: 2rem;
+      text-align: center;
+      h1 {
+        font-size: 7rem;
+        font-weight: 600;
+        line-height: 100%;
+        margin-bottom: 2rem;
+      }
+      h4 {
+        font-size: 2.5rem;
+        letter-spacing: 0.05rem;
+        font-weight: 400;
+      }
+      h5 {
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin-top: 2rem;
+      }
+    }
+
+    .login-box-container {
+      .login-box {
+        a {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+}
+
+.section-in-home {
+  height: 45vh;
+  background-color: $color-dark;
+  padding: 0 25rem;
+  color: $color-white;
+  &:not(:last-child) {
+    border-bottom: 1rem solid $color-dark-light;
+  }
+}
+
+.grid-2 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  &__text {
+    color: $color-white;
+    h2 {
+      font-size: 5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    h4 {
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 110%;
+      width: 80%;
+    }
+  }
+  
+  &__image {
+    img {
+      height: 30rem;
+    }
+  }
+}
+
+.grid-2--reversed {
+  flex-direction: row-reverse;
+}
+
+.login-box {
+  .signin {
+    text-decoration: none;
+    font-size: 1.8rem;
+    background-color: $color-primary;
+    color: $color-white;
+    padding: 0.8rem 2rem;
+    border-radius: 0.4rem;
+  }
+}
+
+.frequently-asked {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &__text {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h2 {
+      font-size: 4rem;
+      font-weight: 600; 
+    }
+  }
+
+  &__questions {
+    width: 70%;
+    
+    .question {
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+      height: 100%;
+      width: 100%;
+      position: relative;
+
+      &__title { 
+        padding: 1rem 2rem;
+        background-color: $color-gray;
+        cursor: pointer;
+        border-bottom: 2px solid $color-dark;
+        h3 {
+          font-size: 2.5rem;
+          font-weight: 400;
+        }
+      }
+      &__answer {
+        padding: 1rem 2rem;
+        background-color: $color-gray;
+        h3 {
+          font-size: 2.5rem;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.footer-in-home {
+  height: 45vh;
+  width: 100%;
+  padding: 10rem 40rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: $color-gray-dark;
+  position: relative;
+
+  &__text {
+    margin-bottom: 2rem;
+    h4 {
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 1rem;
+    margin-bottom: 3rem;
+    grid-column-gap: 2rem;
+
+    a {
+      text-decoration: none;
+      color: $color-gray-dark;
+      font-size: 1.3rem;
+    }
+  }
+
+  &__copyright {
+    position: absolute;
+    bottom: 5%;
+    h5 {
+      font-weight: 500;
+      font-size: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.back-btn {
+  padding: 1.5rem 2rem;
+}
+
+.account__content {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+  color: $color-white;
+
+  .profile__pic {
+    margin-bottom: 2rem;
+    img {
+      width: 20rem;
+      height: 20rem;
+    }
+  }
+
+  .form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .group {
+      width: 100%;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+      }
+
+      input {
+        font-size: 2rem;
+        width: 100%;
+        outline: none;
+        padding: 1rem 2rem;
+        background-color: rgba($color-dark, 0.8);
+        border: none;
+        color: $color-white;
+      }
+    }
+
+    .button {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      button {
+        position: relative;
+        font-size: 3rem;
+        cursor: pointer;
+        padding: 0.5rem 1.5rem;
+        border-radius: 3px;
+        margin-bottom: 1rem;
+        border: none;
+        outline: none;
+        color: $color-white;
+        background-color: $color-primary;
+  
+        &:disabled {
+          background-color: rgba($color-primary, 0.6);
+          cursor: not-allowed;
+        }
+      }
+  
+      button.updating {
+        opacity: 0.2;
+      }
+    }
+  }
+} 

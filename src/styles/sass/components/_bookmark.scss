@@ -1,0 +1,20 @@
+.container {
+  padding: 2rem;
+}
+
+.back-button {
+  margin-bottom: 2rem;
+}
+
+.no-bookmark-message {
+  h2 {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 400;
+  }
+}
+
+.bookmark-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
