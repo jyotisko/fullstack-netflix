@@ -124,3 +124,68 @@
     color: $color-primary;
   }
 }
+
+@media screen and (max-width: 1530px) {
+  .section-in-signup {
+    .form-container {  
+      .form {
+        width: 40%;
+      }
+    }
+  }   
+}
+
+@media screen and (max-width: 1024px) {
+  .section-in-signup {
+    .form-container {  
+      .form {
+        width: 60%;
+      }
+    }
+  }   
+}
+
+@media screen and (max-width: 690px) {
+  .section-in-signup {
+    .form-container {  
+      .form {
+        width: 80%;
+      }
+    }
+  }   
+}
+
+@media screen and (max-width: 470px) {
+  .section-in-signup {
+    nav {
+      background-color: $color-dark;
+    }
+
+    .form-container {  
+      height: 90%;
+      width: 100%;
+      background-color: $color-dark;
+      .form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+    }
+  }   
+}
+
+@media screen and (max-height: 654px) {
+  .section-in-signup {
+    nav {
+      height: 15%;
+    }
+    .form-container {  
+      height: 85%;
+      width: 100%;
+    }
+  }   
+}
+
+

@@ -2,26 +2,10 @@
   height: 90vh;
   width: 100%;
   position: relative;
-  // background-color: antiquewhite;
-  z-index: 2;
-
-  &__background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(rgba($color-dark, 0.3), rgba($color-dark, 0.3));
-    z-index: -2;
-
-    img {
-      height: 100%;
-      width: 100%;
-    } 
-  }
-
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  
   .header__movie {
     height: 100%;
     width: 100%;
@@ -30,12 +14,10 @@
     flex-direction: column;
     padding: 0 10rem; 
     color: $color-white;
-    z-index: 2;
-    background-image: linear-gradient(to bottom right, rgba($color-dark, 0.3), rgba($color-dark, 0.3));
+    background-image: linear-gradient(rgba($color-dark, 0.5), rgba($color-dark, 0.3));
     
     &__title {
       font-weight: 500;
-      z-index: 2;
       font-size: 6rem;
       margin-bottom: 1rem;
     }
@@ -50,7 +32,6 @@
     }
     
     &__play {
-      z-index: 2;
       width: 10rem;
       font-size: 3rem;
       padding: 0.8rem 0.1rem;
@@ -166,10 +147,49 @@
     display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
-
+    scroll-behavior: smooth;
+    
     &::-webkit-scrollbar {
       overflow: hidden; 
+      display: none;
     }
+    
+    .arrow {
+      display: none;
+      background-color: rgba($color-dark, 0.8);
+      width: auto;
+      cursor: pointer;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 50%;
+      width: 4%;
+      
+      &__icon {
+        font-weight: 400;
+        font-size: 8rem;
+        color: $color-white; 
+      }
+      
+      &--left {
+        left: 0;
+      }
+
+      &--right {
+        right: 0;
+      }
+    }
+
+    &:hover .arrow {
+      display: flex;
+    }
+  }
+
+  &:first-child {
+    margin-bottom: 3rem;
   }
 }
 
@@ -187,6 +207,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   &__content {
     height: 100%;
@@ -199,6 +225,7 @@
     .video-player {
       width: 100%;
       height: 70%;
+      margin-top: 2rem;
       div {
         height: 100%;
         iframe {
@@ -206,28 +233,36 @@
           height: 100%;
         }
       }
-      margin-bottom: 2rem;
     }
 
     img {
+      z-index: 2;
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
-      height: 3rem;
+      height: 6rem;
       cursor: pointer;
+      background-color: rgba($color-white, 0.3);
+      border-radius: 50%;
+      padding: 1rem;
     }
 
-    .name {
-      font-size: 3rem;
+    .text-info {
+      padding: 1rem;
+      background-color: rgba($color-gray, 0.8);
       margin-bottom: 2rem;
-      font-weight: 600;
+
+      .name {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+  
+      .description {
+        font-size: 1.8rem;  
+      }
     }
 
-    .description {
-      font-size: 1.3rem;
-      // text-align: center;
-      margin-bottom: 1rem;
-    }
 
     .bookmark {
       height: 8rem;
@@ -278,3 +313,205 @@
   }
 }
 
+// check for touch screen devices, and remove scroll buttons
+@media (hover: none) {
+  .row {
+    &__movies {
+      &:hover .arrow {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1146px) {
+  .home__nav {
+    &__options { 
+      width: 20%;
+      .search {
+        margin-right: 3rem;
+      }
+    }
+  }  
+
+  .row {
+    &__movies { 
+      .arrow {
+        width: 5%;        
+        &__icon {
+          font-size: 6rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1036px) {
+  .header__home {
+    .header__movie { 
+      &__title {
+        font-size: 4rem;
+      }
+      
+      &__paragraph {
+        font-size: 1.8rem;
+        width: 75%;
+      }
+    }
+  }
+
+  .movie-view {
+    &__content {
+      .video-player {
+        height: 60%;
+      }
+    }
+  }
+
+  .home__nav {
+    &__options { 
+      width: 25%;
+    }
+  }  
+}
+
+@media screen and (max-width: 816px) {
+  .home__nav {
+    &__options { 
+      width: 30%;
+    }
+  }  
+
+  .movie-view {
+    &__content {
+      height: 70%;
+      width: 90%;
+      .video-player {
+        height: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 654px) {
+  .home__nav {
+    &__options { 
+      width: 35%;
+    }
+  } 
+  
+  .movie-view {
+    &__content {
+      height: 75%;
+      .video-player {
+        height: 60%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .home__nav {
+    &__options { 
+      width: 40%;
+    }
+  }  
+
+  .movie-view {
+    &__content {
+      height: 80%;
+      .video-player {
+        height: 30%;
+      }
+
+      .bookmark {
+        height: 5rem;
+        width: auto;
+        
+        button {
+          width: 100%;
+          height: 100%;
+          
+          .svg-bookmark {
+            height: 70%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 556px) {
+  .header__home {
+    .header__movie {
+      padding: 0 3rem; 
+      
+      &__paragraph {
+        width: 100%;
+      }
+    }
+  }
+
+  .row {
+    &__movies { 
+      .arrow {
+        width: 10%;        
+      }
+    }
+  }
+
+  .home__nav {
+    &__options { 
+      width: 30%;
+      .search {
+        margin-right: 0;
+        h4 {
+          margin-left: 0.4rem;
+          font-size: 1.8rem;
+        }
+        img {
+          width: 1.8rem;
+        }
+      }
+
+      .user {
+        position: relative;
+        img {
+          width: 4rem;
+          height: 4rem;
+        }
+  
+        &__options {
+          width: auto;
+          padding: 1rem 3rem;
+          h3,
+          a {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }  
+}
+
+@media screen and (max-width: 406px) {
+  .home__nav {
+    padding: 0 2rem;
+    padding-right: 4rem;
+    &__logo {
+      img {
+        width: 14rem;
+      }
+    }
+  }  
+
+  .row-list {
+    padding: 2rem 2rem;
+  }
+  
+  .row {
+    &__title {
+      margin-bottom: 1rem;
+    }
+  }
+}

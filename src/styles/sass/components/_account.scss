@@ -16,6 +16,7 @@
     img {
       width: 20rem;
       height: 20rem;
+      border-radius: 3px;
     }
   }
 
@@ -74,3 +75,17 @@
     }
   }
 } 
+
+@media screen and (max-width: 440px) {
+  .account__content {
+    padding: 3rem;
+  
+    .form {
+      .group {
+        input {
+          width: 100%;
+        }
+      }
+    } 
+  }
+}

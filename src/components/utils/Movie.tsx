@@ -98,11 +98,13 @@ const Movie: React.FC<Props> = ({ movie, bigPoster }) => {
           <div className="movie-view">
             <div className="movie-view__content">
               <img onClick={() => setIsOpened(false)} src={closeIcon} alt="Close" />
-              <h2 className="name">{movie.name}</h2>
-              <p className="description">{movie.description}</p>
               <div className="video-player">
                 {isVideoLoaded || <Spinner />}
                 <Youtube onReady={() => setIsVideoLoaded(true)} videoId={movie.videoURL.split('?v=')[1]} />
+              </div>
+              <div className="text-info">
+                <h2 className="name">{movie.name}</h2>
+                <p className="description">{movie.description}</p>
               </div>
               <div className="bookmark">
                 {

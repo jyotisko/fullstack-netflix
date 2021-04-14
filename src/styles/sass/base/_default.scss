@@ -14,3 +14,24 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: $color-dark-light;
 }
+
+@media screen and (max-width: 1472px) {
+  html {
+    font-size: 58%;
+  }
+}
+
+
+@media screen and (max-width: 1312px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  html {
+    font-size: 52%;
+  }
+}
+
+

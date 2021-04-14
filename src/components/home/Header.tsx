@@ -43,14 +43,11 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className="header__home">
+      <header className="header__home" style={movie ? { backgroundImage: `url(${movie?.backdropImageURL})` } : { backgroundImage: '' }}>
         {isLoading && <Spinner />}
         {
           movie && (
             <>
-              <div className="header__home__background">
-                <img src={movie.backdropImageURL} alt={movie.name} />
-              </div>
               <div className="header__movie">
                 <h1 className="header__movie__title">{movie.name}</h1>
                 <h3 className="header__movie__paragraph">{movie.description}</h3>
@@ -76,6 +73,7 @@ const Header: React.FC = () => {
           </div>
         )
       }
+      <Toaster position='bottom-center' toastOptions={{ className: 'toast' }} />
     </>
   );
 }

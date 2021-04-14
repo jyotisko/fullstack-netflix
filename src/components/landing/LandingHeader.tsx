@@ -31,7 +31,6 @@ const LandingHeader: React.FC = () => {
           <div className="text">
             <h1>Unlimited movies, TV <br /> shows and more.</h1>
             <h4>Watch anywhere. Cancel anytime.</h4>
-            <h5>Ready to watch? Enter your email to create or restart your membership.</h5>
           </div>
           <div className="login-box-container">
             <div className="login-box">

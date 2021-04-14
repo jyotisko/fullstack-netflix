@@ -49,7 +49,7 @@ const Signup: React.FC = () => {
                   </div>
                   <div onClick={labelAnimation} className="form__fields__field">
                     <label className='form__label'>Password</label>
-                    <input onFocus={labelAnimation} value={password} onChange={e => {
+                    <input minLength={6} onFocus={labelAnimation} value={password} onChange={e => {
                       setPassword(e.target.value)
                       ckeckValidity(e, 'password')
                     }} className='form__input' type='password' required />
