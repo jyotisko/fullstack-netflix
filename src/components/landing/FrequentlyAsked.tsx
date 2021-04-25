@@ -1,7 +1,10 @@
+import { FaPlus } from 'react-icons/fa';
+
 const FrequentlyAsked: React.FC = () => {
 
   const openAnswer = (e: any) => {
     e.target.closest('.question').querySelector('.question__answer').classList.toggle('hidden');
+    e.target.closest('.question').querySelector('.plus').classList.toggle('open');
   };
 
   return (
@@ -14,6 +17,7 @@ const FrequentlyAsked: React.FC = () => {
           <div className="question">
             <div className="question__title" onClick={openAnswer}>
               <h3>What is Netflix?</h3>
+              <span className="plus"><FaPlus /></span>
             </div>
             <div className="question__answer hidden">
               <h3>
@@ -24,6 +28,7 @@ const FrequentlyAsked: React.FC = () => {
           <div className="question">
             <div className="question__title" onClick={openAnswer}>
               <h3>How much does Netflix cost?</h3>
+              <span className="plus"><FaPlus /></span>
             </div>
             <div className="question__answer hidden">
               <h3>
@@ -34,6 +39,7 @@ const FrequentlyAsked: React.FC = () => {
           <div className="question">
             <div className="question__title" onClick={openAnswer}>
               <h3>Where can I watch?</h3>
+              <span className="plus"><FaPlus /></span>
             </div>
             <div className="question__answer hidden">
               <h3>
@@ -44,6 +50,7 @@ const FrequentlyAsked: React.FC = () => {
           <div className="question">
             <div className="question__title" onClick={openAnswer}>
               <h3>How do I cancel?</h3>
+              <span className="plus"><FaPlus /></span>
             </div>
             <div className="question__answer hidden">
               <h3>
@@ -54,6 +61,7 @@ const FrequentlyAsked: React.FC = () => {
           <div className="question">
             <div className="question__title" onClick={openAnswer}>
               <h3>What can I watch on Netflix?</h3>
+              <span className="plus"><FaPlus /></span>
             </div>
             <div className="question__answer hidden">
               <h3>

@@ -14,21 +14,33 @@
     flex-direction: column;
     padding: 0 10rem; 
     color: $color-white;
+    position: relative;
     background-image: linear-gradient(rgba($color-dark, 0.5), rgba($color-dark, 0.3));
     
     &__title {
-      font-weight: 500;
+      font-weight: 800;
       font-size: 6rem;
       margin-bottom: 1rem;
     }
     
     &__paragraph {
       z-index: 2;
-      font-weight: 400;
+      font-weight: 500;
       color: $color-white-light;
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 0.5rem;
       width: 70%;
+      .expand {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: $color-white;
+        font-size: 3rem;
+        transform: translateY(10%);
+        &.expanded {
+          transform:  rotateZ(180deg);
+        }
+      }
     }
     
     &__play {
@@ -129,6 +141,7 @@
 
 .row-list {
   padding: 2rem 3rem;
+  position: relative;
 }
 
 .row {
@@ -140,7 +153,7 @@
     color: $color-white;
     font-size: 3rem;
     font-weight: 500;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
   } 
 
   &__movies {
@@ -394,6 +407,9 @@
 }
 
 @media screen and (max-width: 654px) {
+  .header__home {
+    height: 70vh;
+  }
   .home__nav {
     &__options { 
       width: 35%;
@@ -442,7 +458,11 @@
 }
 
 @media screen and (max-width: 556px) {
+  .home__nav {
+    height: 8%;
+  }
   .header__home {
+    height: 55vh;
     .header__movie {
       padding: 0 3rem; 
       
@@ -495,8 +515,12 @@
 }
 
 @media screen and (max-width: 406px) {
+  .header__movie__title {
+    font-size: 10rem;
+  }
+
   .home__nav {
-    padding: 0 2rem;
+    padding: 1rem 2rem;
     padding-right: 4rem;
     &__logo {
       img {
@@ -513,5 +537,22 @@
     &__title {
       margin-bottom: 1rem;
     }
+  }
+
+  .movie-view {
+    &__content {
+      width: 100%;
+      min-height: 100%;
+      max-height: auto;
+    }
+  }
+}
+
+@media screen and (max-height: 640px) {
+  .home__nav {
+    height: 10%;
+  } 
+  .header__home {
+    height: 65vh;
   }
 }

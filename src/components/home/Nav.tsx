@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import { auth } from './../../firebase/firebase';

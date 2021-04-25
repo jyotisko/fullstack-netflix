@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
 *,
 *::before,
 *::after {
@@ -9,7 +10,7 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #222222; }
 
 @media screen and (max-width: 1472px) {
@@ -183,10 +184,22 @@ body {
         padding: 1.5rem 2rem;
         background-color: #303030;
         cursor: pointer;
-        border-bottom: 2px solid #000; }
+        border-bottom: 2px solid #000;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
         .frequently-asked__questions .question__title h3 {
           font-size: 2.5rem;
           font-weight: 400; }
+        .frequently-asked__questions .question__title .plus {
+          font-weight: 500;
+          font-size: 2.5rem;
+          transition: 0.3s ease;
+          transform-origin: center center; }
+        .frequently-asked__questions .question__title .plus.open {
+          transform: rotateZ(45deg); }
       .frequently-asked__questions .question__answer {
         padding: 1rem 2rem;
         background-color: #303030; }
@@ -461,18 +474,28 @@ body {
     flex-direction: column;
     padding: 0 10rem;
     color: #fff;
+    position: relative;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)); }
     .header__home .header__movie__title {
-      font-weight: 500;
+      font-weight: 800;
       font-size: 6rem;
       margin-bottom: 1rem; }
     .header__home .header__movie__paragraph {
       z-index: 2;
-      font-weight: 400;
+      font-weight: 500;
       color: #f5f5f5;
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 0.5rem;
       width: 70%; }
+      .header__home .header__movie__paragraph .expand {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        font-size: 3rem;
+        transform: translateY(10%); }
+        .header__home .header__movie__paragraph .expand.expanded {
+          transform: rotateZ(180deg); }
     .header__home .header__movie__play {
       width: 10rem;
       font-size: 3rem;
@@ -546,7 +569,8 @@ body {
           text-decoration: none; }
 
 .row-list {
-  padding: 2rem 3rem; }
+  padding: 2rem 3rem;
+  position: relative; }
 
 .row {
   width: 100%;
@@ -556,7 +580,7 @@ body {
     color: #fff;
     font-size: 3rem;
     font-weight: 500;
-    margin-bottom: 0.2rem; }
+    margin-bottom: 0.5rem; }
   .row__movies {
     display: flex;
     overflow-y: hidden;
@@ -715,6 +739,8 @@ body {
       height: 50%; } }
 
 @media screen and (max-width: 654px) {
+  .header__home {
+    height: 70vh; }
   .home__nav__options {
     width: 35%; }
   .movie-view__content {
@@ -739,10 +765,14 @@ body {
           height: 70%; } }
 
 @media screen and (max-width: 556px) {
-  .header__home .header__movie {
-    padding: 0 3rem; }
-    .header__home .header__movie__paragraph {
-      width: 100%; }
+  .home__nav {
+    height: 8%; }
+  .header__home {
+    height: 55vh; }
+    .header__home .header__movie {
+      padding: 0 3rem; }
+      .header__home .header__movie__paragraph {
+        width: 100%; }
   .row__movies .arrow {
     width: 10%; }
   .home__nav__options {
@@ -767,15 +797,27 @@ body {
           font-size: 1.5rem; } }
 
 @media screen and (max-width: 406px) {
+  .header__movie__title {
+    font-size: 10rem; }
   .home__nav {
-    padding: 0 2rem;
+    padding: 1rem 2rem;
     padding-right: 4rem; }
     .home__nav__logo img {
       width: 14rem; }
   .row-list {
     padding: 2rem 2rem; }
   .row__title {
-    margin-bottom: 1rem; } }
+    margin-bottom: 1rem; }
+  .movie-view__content {
+    width: 100%;
+    min-height: 100%;
+    max-height: auto; } }
+
+@media screen and (max-height: 640px) {
+  .home__nav {
+    height: 10%; }
+  .header__home {
+    height: 65vh; } }
 
 .search__content {
   padding: 2rem; }

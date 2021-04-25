@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Youtube from 'react-youtube';
+import { FaAngleRight } from 'react-icons/fa';
 import toast, { Toaster } from 'react-hot-toast';
 import { instance as axios, requests } from '../../utils/requests';
 import Spinner from './../utils/Spinner';
@@ -19,10 +20,12 @@ const Header: React.FC = () => {
     videoURL: string
   };
 
+  const defaultWordLimit = 40;
   const [movie, setMovie] = useState<Movie | null>(null);
   const [isOpened, setIsOpened] = useState<true | false>(false);
   const [isLoading, setIsLoading] = useState<true | false>(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState<true | false>(false);
+  const [wordLimit, setWordLimit] = useState(defaultWordLimit);
 
   useEffect(() => {
     (async () => {
@@ -41,6 +44,12 @@ const Header: React.FC = () => {
     })();
   }, []);
 
+  const expand = () => {
+    if (wordLimit === defaultWordLimit) setWordLimit(Number(movie?.description?.split(' ')?.length));
+    if (wordLimit !== defaultWordLimit) setWordLimit(defaultWordLimit);
+    document.querySelector('.expand')?.classList.toggle('expanded');
+  };
+
   return (
     <>
       <header className="header__home" style={movie ? { backgroundImage: `url(${movie?.backdropImageURL})` } : { backgroundImage: '' }}>
@@ -50,7 +59,10 @@ const Header: React.FC = () => {
             <>
               <div className="header__movie">
                 <h1 className="header__movie__title">{movie.name}</h1>
-                <h3 className="header__movie__paragraph">{movie.description}</h3>
+                <h3 className="header__movie__paragraph">
+                  {movie.description.split(' ').splice(0, wordLimit).join(' ')}
+                  {movie.description.split(' ').length >= 40 && <button className='expand' onClick={expand}><FaAngleRight /></button>}
+                </h3>
                 <button onClick={() => setIsOpened(true)} className="header__movie__play">Play</button>
               </div>
             </>
@@ -63,11 +75,13 @@ const Header: React.FC = () => {
           <div className="movie-view">
             <div className="movie-view__content">
               <img onClick={() => setIsOpened(false)} src={closeIcon} alt="Close" />
-              <h2 className="name">{movie.name}</h2>
-              <p className="description">{movie.description}</p>
               <div className="video-player">
                 {isVideoLoaded || <Spinner />}
                 <Youtube onReady={() => setIsVideoLoaded(true)} videoId={movie.videoURL.split('?v=')[1]} />
+              </div>
+              <div className="text-info">
+                <h2 className="name">{movie.name}</h2>
+                <p className="description">{movie.description}</p>
               </div>
             </div>
           </div>

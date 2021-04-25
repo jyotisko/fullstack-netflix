@@ -147,9 +147,23 @@
         background-color: $color-gray;
         cursor: pointer;
         border-bottom: 2px solid $color-dark;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         h3 {
           font-size: 2.5rem;
           font-weight: 400;
+        }
+        .plus {
+          font-weight: 500;
+          font-size: 2.5rem;
+          transition: 0.3s ease;
+          transform-origin: center center;
+        }
+        .plus.open {
+          transform: rotateZ(45deg);
         }
       }
       &__answer {
