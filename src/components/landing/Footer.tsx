@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
           <a href='#'>Netflix Originals</a>
         </div>
         <div className="footer-in-home__copyright">
-          <h5>&copy; 2021 Netflix Inc.</h5>
+          <h5>This is a netflix clone website, made for practice.</h5>
         </div>
       </footer>
     </>
