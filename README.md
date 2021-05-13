@@ -10,3 +10,4 @@
 - node-sass
 - react-router
 - react-router-dom
+- react-icons
